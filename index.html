@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Giriş</title>
+</head>
+<body>
+  <h2>Yönetici Giriş Paneli</h2>
+  <input type="password" id="pass" placeholder="Şifreyi gir"><br><br>
+  <button onclick="giris()">Giriş Yap</button>
+
+  <script>
+    // Şifreyi basitçe gizli tutmak için base64'e çevirdik
+    const gizliSifre = "aW1hbWVmZW5kaTEyMw=="; // imamefendi123
+
+    function giris() {
+      const girilen = document.getElementById("pass").value;
+      const kodlanmis = btoa(girilen); // kullanıcıdan gelen şifreyi encode et
+
+      if (kodlanmis === gizliSifre) {
+        alert("Giriş başarılı!");
+        window.location.href = "admin.html"; // yönetici sayfasına geç
+      } else {
+        alert("Şifre yanlış.");
+      }
+    }
+  </script>
+</body>
+</html>
