@@ -3,8 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <title>Yönetici Paneli</title>
+  <script>
+    // Sayfa açıldığında kontrol et
+    if (localStorage.getItem("girisYapildi") !== "evet") {
+      window.location.href = "index.html"; // Giriş yapılmamışsa geri yolla
+    }
+  </script>
 </head>
 <body>
   <h1>Yönetici paneline hoş geldin imam efendi</h1>
+  <br><br>
+  <button onclick="cikis()">Çıkış Yap</button>
+
+  <script>
+    function cikis() {
+      localStorage.removeItem("girisYapildi"); // Giriş işaretini sil
+      window.location.href = "index.html"; // Login sayfasına dön
+    }
+  </script>
 </body>
 </html>
+
