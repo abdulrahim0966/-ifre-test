@@ -10,16 +10,17 @@
   <button onclick="giris()">Giriş Yap</button>
 
   <script>
-    // Şifreyi basitçe gizli tutmak için base64'e çevirdik
-    const gizliSifre = "aW1hbWVmZW5kaTEyMw=="; // imamefendi123
+    // Base64 ile gizlenmiş şifre (imam efendi için): "imamefendi123"
+    const gizliSifre = "aW1hbWVmZW5kaTEyMw==";
 
     function giris() {
       const girilen = document.getElementById("pass").value;
-      const kodlanmis = btoa(girilen); // kullanıcıdan gelen şifreyi encode et
+      const kodlanmis = btoa(girilen); // kullanıcıdan gelen şifreyi base64'e çevir
 
       if (kodlanmis === gizliSifre) {
-        alert("Giriş başarılı!");
-        window.location.href = "admin.html"; // yönetici sayfasına geç
+        // Giriş yapıldığını sakla
+        localStorage.setItem("girisYapildi", "evet");
+        window.location.href = "admin.html";
       } else {
         alert("Şifre yanlış.");
       }
